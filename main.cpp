@@ -18,7 +18,7 @@ int main()
 	// Create and open a window for the game
 	RenderWindow window(vm, "Mandelbrot Set!", Style::Default);
 
-    ComplexPlane comPlane(height/width);
+    //ComplexPlane comPlane(height/width);
 	Font font;
 	Text basicText;
 }
