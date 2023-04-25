@@ -1,10 +1,10 @@
 #include "ComplexPlane.h"
-#include <SFML/Graphics.hpp>
+/*#include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include <sstream>
 using namespace sf;
-using namespace std;
+using namespace std; ****All in ComplexPlane.h*******/
 
 int main()
 {
@@ -18,5 +18,7 @@ int main()
 	// Create and open a window for the game
 	RenderWindow window(vm, "Mandelbrot Set!", Style::Default);
 
-    //ComplexPlane comPlane;
+    ComplexPlane comPlane(height/width);
+	Font font;
+	Text basicText;
 }
