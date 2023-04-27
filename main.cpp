@@ -105,13 +105,6 @@ int main()
 		/*DRAW SCENE SEGMENT*/
 		window.clear();
 		window.setView(screen.getView());
-		//CircleShape r(1);
-		/*for(int i = 0; i < height*width; i++)
-		{
-			r.setFillColor(vArray[i].color);
-			r.setPosition(vArray[i].position);
-			window.draw(r);
-		}*/
 		window.draw(vArray);
 		window.draw(basicText);
 		window.display();
