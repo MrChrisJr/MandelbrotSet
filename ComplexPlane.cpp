@@ -50,13 +50,34 @@ void ComplexPlane :: loadText(Text& text)
 size_t ComplexPlane :: countIterations(Vector2f coord)
 {
     size_t iters = 0;
+    int x = coord.x;
+    int y = coord.y;
+    complex<double> c (x,y);
+    complex<double> z (0,0);
     while(iters <= MAX_ITER)
     {
-        
+        z = z*z + c;
+        iters++;
+        if(abs(z) > 2.0 || abs(c) > 2.0)
+        {
+            return iters;
+        }
     }
+    return MAX_ITER;
 }
 
 void ComplexPlane :: iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b)
 {
-    //unwritten
+    if(count != MAX_ITER)
+    {
+        r = count;
+        g = count;
+        b = count;
+    }
+    else if(count == MAX_ITER)
+    {
+        r = 0;
+        g = 0;
+        b = 0;
+    }
 }
