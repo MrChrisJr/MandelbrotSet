@@ -11,14 +11,15 @@ int main()
     //Constructs and constrains window
     float width = sf::VideoMode::getDesktopMode().width;
 	float height = sf::VideoMode::getDesktopMode().height;
-	View mainView(FloatRect(0.0f,0.0f,width, height));
+	//View mainView(FloatRect(0.0f,0.0f,width, height));
+	float aspectRatio = height/width;
 	//width = 800; height = 600;
 	// Create a video mode object
 	VideoMode vm(width, height);
 	// Create and open a window for the game
 	RenderWindow window(vm, "Mandelbrot Set!", Style::Default);
 
-    ComplexPlane screen(height/width);
+    ComplexPlane screen(aspectRatio);
 	Font font;
 	Text basicText;
 	
@@ -74,17 +75,20 @@ int main()
 		/*UPDATE SCENE*/
 		if(curr == GameState::CALCULATING)
 		{
-			for(int j = 0; j < screen.getSize().x; j++)
+			for(int j = 0; j < width; j++)
 			{
-				for(int i = 0; i < screen.getSize().y; i++)
+				for(int i = 0; i < height; i++)
 				{
 					vArray[j + i * width].position = { (float)j,(float)i };
 					
-                	sf::Vector2i pixelPos = { j, i };
+                	//sf::Vector2i pixelPos = { j, i };
 
                 	// convert it to world coordinates
-                	sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen);
-					size_t count = screen.countIterations(worldPos);
+					Vector2i pixelLocation(j, i);
+                    Vector2f viewCoord;
+                    viewCoord = window.mapPixelToCoords(pixelLocation, screen);
+                	/*sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen.getView());*/
+					size_t count = screen.countIterations(viewCoord);
 					Uint8 r, g, b;
 					screen.iterationsToRGB(count, r, g, b);
 					vArray[j + i * width].color = { r,g,b };
@@ -95,6 +99,7 @@ int main()
 		}
 		/*DRAW SCENE SEGMENT*/
 		window.clear();
+		window.setView(screen);
 		CircleShape r(1);
 		for(int i = 0; i < vArray.getVertexCount(); i++)
 		{
@@ -105,4 +110,5 @@ int main()
 		window.draw(basicText);
 		window.display();
 	}
+	return 0;
 }
