@@ -74,9 +74,9 @@ int main()
 		/*UPDATE SCENE*/
 		if(curr == GameState::CALCULATING)
 		{
-			for(int j = 0; j < screen.getSize().x; j++)
+			for(float j = 0; j < screen.getSize().x; j++)
 			{
-				for(int i = 0; i < screen.getSize().y; i++)
+				for(float i = 0; i < screen.getSize().y; i++)
 				{
 					vArray[j + i * width].position = { (float)j,(float)i };
 					// get the current mouse position in the window
@@ -84,7 +84,7 @@ int main()
 
                 	// convert it to world coordinates
                 	sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen);
-					size_t count = screen.countIterations({ j, i });
+					size_t count = screen.countIterations(worldPos);
 					Uint8 r, g, b;
 					screen.iterationsToRGB(count, r, g, b);
 					vArray[j + i * width].color = { r,g,b };
