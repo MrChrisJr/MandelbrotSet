@@ -77,7 +77,6 @@ int main()
 			window.close();
 		}
 		/*UPDATE SCENE*/
-		
 		if(curr == GameState::CALCULATING)
 		{
 			for(int j = 0; j < width; j++)
@@ -106,12 +105,13 @@ int main()
 		window.clear();
 		window.setView(screen);
 		CircleShape r(1);
-		for(int i = 0; i < vArray.getVertexCount(); i++)
+		/*for(int i = 0; i < height*width; i++)
 		{
 			r.setFillColor(vArray[i].color);
 			r.setPosition(vArray[i].position);
 			window.draw(r);
-		}
+		}*/
+		window.draw(vArray);
 		window.draw(basicText);
 		window.display();
 	}
