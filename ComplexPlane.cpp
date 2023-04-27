@@ -48,7 +48,7 @@ void ComplexPlane :: loadText(Text& text)
            << "Cursor: " << "(" << m_mouseLocation.x
            << "," << m_mouseLocation.y << ")" << endl
            << "Left-click to Zoom in" << endl
-           << "Right-click to Zoom in" << endl;
+           << "Right-click to Zoom out" << endl;
     text.setString(output.str());
 }
 

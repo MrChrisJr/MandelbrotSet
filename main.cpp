@@ -104,7 +104,7 @@ int main()
 		screen.loadText(basicText);
 		/*DRAW SCENE SEGMENT*/
 		window.clear();
-		window.setView(screen.getView());
+		//window.setView(screen.getView());
 		window.draw(vArray);
 		window.draw(basicText);
 		window.display();
