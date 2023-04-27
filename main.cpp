@@ -74,12 +74,12 @@ int main()
 		/*UPDATE SCENE*/
 		if(curr == GameState::CALCULATING)
 		{
-			for(float j = 0; j < screen.getSize().x; j++)
+			for(int j = 0; j < screen.getSize().x; j++)
 			{
-				for(float i = 0; i < screen.getSize().y; i++)
+				for(int i = 0; i < screen.getSize().y; i++)
 				{
 					vArray[j + i * width].position = { (float)j,(float)i };
-					// get the current mouse position in the window
+					
                 	sf::Vector2i pixelPos = { j, i };
 
                 	// convert it to world coordinates
@@ -95,7 +95,13 @@ int main()
 		}
 		/*DRAW SCENE SEGMENT*/
 		window.clear();
-		window.draw(vArray);
+		CircleShape r(1);
+		for(int i = 0; i < vArray.getVertexCount(); i++)
+		{
+			r.setFillColor(vArray[i].color);
+			r.setPosition(vArray[i].position);
+			window.draw(r);
+		}
 		window.draw(basicText);
 		window.display();
 	}
