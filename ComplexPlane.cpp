@@ -63,7 +63,7 @@ size_t ComplexPlane :: countIterations(Vector2f coord)
     {
         z = z*z + c;
         iters++;
-        if(abs(z) > 2.0 || abs(c) > 2.0)
+        if(abs(z) >= 2.0)
         {
             return iters;
         }
@@ -75,9 +75,9 @@ void ComplexPlane :: iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b)
 {
     if(count != MAX_ITER)
     {
-        r = count;
-        g = count;
-        b = count;
+        r = count + 40;
+        g = count + 60;
+        b = count + 80;
     }
     else if(count == MAX_ITER)
     {
