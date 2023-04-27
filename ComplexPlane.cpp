@@ -46,3 +46,17 @@ void ComplexPlane :: loadText(Text& text)
            << "Right-click to Zoom in" << endl;
     text.setString(output.str());
 }
+
+size_t ComplexPlane :: countIterations(Vector2f coord)
+{
+    size_t iters = 0;
+    while(iters <= MAX_ITER)
+    {
+        
+    }
+}
+
+void ComplexPlane :: iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b)
+{
+    //unwritten
+}
