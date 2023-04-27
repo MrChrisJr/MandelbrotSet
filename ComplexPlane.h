@@ -17,7 +17,7 @@ using namespace std;
     const float BASE_ZOOM = 0.5;
 
 
-class ComplexPlane : public View
+class ComplexPlane
 {
     private:
         Vector2f m_mouseLocation;

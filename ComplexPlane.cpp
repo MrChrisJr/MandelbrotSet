@@ -29,6 +29,11 @@ void ComplexPlane :: setCenter(Vector2f coord)
     m_view.setCenter(coord);
 }
 
+View ComplexPlane :: getView()
+{
+    return m_view;
+}
+
 void ComplexPlane :: setMouseLocation(Vector2f coord)
 {
     m_mouseLocation = coord;
@@ -38,8 +43,8 @@ void ComplexPlane :: loadText(Text& text)
 {
     stringstream output;
     output << "Mandelbrot Set" << endl
-           << "Center: " << "(" << getCenter().x
-           << "," << getCenter().y << ")" << endl
+           << "Center: " << "(" << m_view.getCenter().x
+           << "," << m_view.getCenter().y << ")" << endl
            << "Cursor: " << "(" << m_mouseLocation.x
            << "," << m_mouseLocation.y << ")" << endl
            << "Left-click to Zoom in" << endl

@@ -49,7 +49,7 @@ int main()
                 sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
 
                 // convert it to world coordinates
-                sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen);
+                sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen.getView());
                 if(event.mouseButton.button == sf::Mouse::Right)
 				{
 					screen.zoomOut();
@@ -68,7 +68,7 @@ int main()
                 sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
 
                 // convert it to world coordinates
-                sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen);
+                sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen.getView());
                 screen.setMouseLocation(worldPos);
 			}
 		}
@@ -90,7 +90,7 @@ int main()
                 	// convert it to world coordinates
 					Vector2i pixelLocation = { j, i };
                     Vector2f viewCoord;
-                    viewCoord = window.mapPixelToCoords(pixelLocation, screen);
+                    viewCoord = window.mapPixelToCoords(pixelLocation, screen.getView());
                 	/*sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen.getView());*/
 					size_t count = screen.countIterations(viewCoord);
 					Uint8 r, g, b;
@@ -104,7 +104,7 @@ int main()
 		screen.loadText(basicText);
 		/*DRAW SCENE SEGMENT*/
 		window.clear();
-		window.setView(screen);
+		window.setView(screen.getView());
 		//CircleShape r(1);
 		/*for(int i = 0; i < height*width; i++)
 		{
