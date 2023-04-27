@@ -88,7 +88,7 @@ int main()
                 	//sf::Vector2i pixelPos = { j, i };
 
                 	// convert it to world coordinates
-					Vector2i pixelLocation(j, i);
+					Vector2i pixelLocation = { j, i };
                     Vector2f viewCoord;
                     viewCoord = window.mapPixelToCoords(pixelLocation, screen);
                 	/*sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen.getView());*/
@@ -99,12 +99,13 @@ int main()
 				}
 			}
 			curr = GameState::DISPLAYING;
-			screen.loadText(basicText);
+			//screen.loadText(basicText);
 		}
+		screen.loadText(basicText);
 		/*DRAW SCENE SEGMENT*/
 		window.clear();
 		window.setView(screen);
-		CircleShape r(1);
+		//CircleShape r(1);
 		/*for(int i = 0; i < height*width; i++)
 		{
 			r.setFillColor(vArray[i].color);

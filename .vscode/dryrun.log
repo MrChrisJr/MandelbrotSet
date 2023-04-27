@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/admin/Desktop/cisp400/MandelbrotSet'
+g++ -g -Wall -fpermissive -std=c++17  -c -o ComplexPlane.o ComplexPlane.cpp
+g++ -g -Wall -fpermissive -std=c++17  -c -o main.o main.cpp
+g++ -o MandelbrotSet ComplexPlane.o main.o -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+make: Leaving directory '/home/admin/Desktop/cisp400/MandelbrotSet'
+ 
