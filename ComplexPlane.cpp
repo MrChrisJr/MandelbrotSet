@@ -31,12 +31,12 @@ void ComplexPlane :: setCenter(Vector2f coord)
 
 void ComplexPlane :: setMouseLocation(Vector2f coord)
 {
-    m_mouseLocation = coord;s
+    m_mouseLocation = coord;
 }
 
 void ComplexPlane :: loadText(Text& text)
 {
-    stringstream& output;
+    stringstream output;
     output << "Mandelbrot Set" << endl
            << "Center: " << "(" << getCenter().x
            << "," << getCenter().y << ")" << endl
@@ -44,5 +44,5 @@ void ComplexPlane :: loadText(Text& text)
            << "," << m_mouseLocation.y << ")" << endl
            << "Left-click to Zoom in" << endl
            << "Right-click to Zoom in" << endl;
-    //text(output);
+    text.setString(output.str());
 }
