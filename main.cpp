@@ -18,10 +18,14 @@ int main()
 	VideoMode vm(width, height);
 	// Create and open a window for the game
 	RenderWindow window(vm, "Mandelbrot Set!", Style::Default);
-
+	
     ComplexPlane screen(aspectRatio);
-	Font font;
+	Font f;
+	if (!f.loadFromFile("./fonts/Roboto-Black.ttf")) cout << "failed to load font..." << endl;
 	Text basicText;
+	basicText.setFont(f);
+	basicText.setCharacterSize(24);
+	basicText.setFillColor(Color::White);
 	
 	VertexArray vArray;
 	vArray.setPrimitiveType(Points);
@@ -73,6 +77,7 @@ int main()
 			window.close();
 		}
 		/*UPDATE SCENE*/
+		
 		if(curr == GameState::CALCULATING)
 		{
 			for(int j = 0; j < width; j++)
