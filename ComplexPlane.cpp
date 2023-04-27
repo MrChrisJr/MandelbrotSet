@@ -55,8 +55,8 @@ void ComplexPlane :: loadText(Text& text)
 size_t ComplexPlane :: countIterations(Vector2f coord)
 {
     size_t iters = 0;
-    int x = coord.x;
-    int y = coord.y;
+    double x = coord.x;
+    double y = coord.y;
     complex<double> c (x,y);
     complex<double> z (0,0);
     while(iters <= MAX_ITER)
