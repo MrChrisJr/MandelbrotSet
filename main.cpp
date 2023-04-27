@@ -84,9 +84,19 @@ int main()
 
                 	// convert it to world coordinates
                 	sf::Vector2f worldPos = window.mapPixelToCoords(pixelPos, screen);
-					
+					size_t count = screen.countIterations({ j, i });
+					Uint8 r, g, b;
+					screen.iterationsToRGB(count, r, g, b);
+					vArray[j + i * width].color = { r,g,b };
 				}
 			}
+			curr = GameState::DISPLAYING;
+			screen.loadText(basicText);
 		}
+		/*DRAW SCENE SEGMENT*/
+		window.clear();
+		window.draw(vArray);
+		window.draw(basicText);
+		window.display();
 	}
 }

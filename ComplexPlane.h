@@ -5,6 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <cmath>
+#include <complex>
 
 using namespace sf;
 using namespace std;
